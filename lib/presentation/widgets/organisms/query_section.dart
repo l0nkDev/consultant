@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../molecules/query_input.dart';
 import '../molecules/query_result_display.dart';
+import '../../../core/constants/app_text_constants.dart';
 
 class QuerySection extends StatelessWidget {
   final TextEditingController controller;
@@ -25,7 +26,14 @@ class QuerySection extends StatelessWidget {
         QueryInput(controller: controller, onSubmit: onSubmit),
         const SizedBox(height: 16),
         isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                CircularProgressIndicator(),
+                SizedBox(height: 8),
+                Text(AppText.loadingMessage),
+              ],
+            )
             : QueryResultDisplay(answer: answer, error: error),
       ],
     );
