@@ -28,6 +28,17 @@ dependencies:
   # soportando múltiples plataformas (Android, iOS, web, Windows y macOS).
   flutter_tts: ^4.2.2
 
+  # Un envoltorio para InheritedWidget que facilita su uso y reutilización.
+  # Permite una asignación y disposición simplificada de recursos, lazy-loading,
+  # y reduce el código repetitivo al evitar tener que crear una clase InheritedWidget personalizada cada vez.
+  # Además, mejora la escalabilidad al consumir estos InheritedWidgets mediante métodos como Provider.of, Consumer y Selector,
+  # y es compatible con las herramientas de desarrollo de Flutter para visualizar el estado de la aplicación.
+  provider: ^6.1.4
+
+  # Es Un localizador de servicios para Dart y Flutter que permite acceder a objetos (por ejemplo, clientes API, repositorios, BLoCs, etc.)
+  # desde la UI sin depender del BuildContext.
+  get_it: ^8.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter # Framework de pruebas para Flutter, usado para escribir y ejecutar tests de la app.

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'core/configs/dependency_injections.dart' as inject;
+import 'presentation/screens/query_screen.dart';
+import 'presentation/providers/query_provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  inject.setupDependencies(); // Configura la inyección de dependencias.
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -9,12 +14,27 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return MultiProvider(
+      providers: [
+        // Usa Provider para inyectar la instancia de QueryProvider registrada en GetIt.
+        ChangeNotifierProvider<QueryProvider>(
+          create: (_) => inject.instance<QueryProvider>(),
         ),
-      ),
+      ],
+      child: _MaterialApp(),
+    );
+  }
+}
+
+class _MaterialApp extends StatelessWidget {
+  const _MaterialApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Asistente Legal de Tránsito',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: QueryScreen(),
     );
   }
 }
