@@ -1,6 +1,6 @@
 name: consultant
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -8,12 +8,49 @@ environment:
 
 dependencies:
   flutter:
-    sdk: flutter
+    sdk: flutter # El framework Flutter, esencial para construir aplicaciones móviles.
+  flutter_localizations:
+    sdk: flutter # Proporciona soporte de localización para la app (traducciones, formatos regionales, etc.).
+
+  # Paquete de íconos estilo Cupertino, ideal para diseños en iOS.
+  cupertino_icons: ^1.0.8
+
+  # Librería basada en Future para realizar peticiones HTTP de forma composable en múltiples plataformas (móvil, escritorio y navegador).
+  # Facilita el consumo de recursos HTTP con funciones y clases de alto nivel.
+  http: ^1.3.0
+
+  # Librería que expone la capacidad de reconocimiento de voz específica del dispositivo.
+  # Permite usar el reconocimiento de voz en Android, iOS, macOS y web, ideal para comandos y frases cortas.
+  speech_to_text: ^7.0.0
+
+  # Librería de texto a voz para Flutter (basado en Swift/Kotlin).
+  # Permite convertir texto a audio, con funciones para controlar velocidad, volumen, tono y seleccionar voces,
+  # soportando múltiples plataformas (Android, iOS, web, Windows y macOS).
+  flutter_tts: ^4.2.2
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter
-  flutter_lints: ^5.0.0
+    sdk: flutter # Framework de pruebas para Flutter, usado para escribir y ejecutar tests de la app.
+  flutter_lints: ^5.0.0 # Conjunto de lints recomendados para mantener la calidad del código en proyectos Flutter.
 
 flutter:
-  uses-material-design: true
+  uses-material-design: true # Permite el uso de la fuente de íconos Material, necesaria para Material Design.
+
+
+  # Sección de assets: lista archivos (imágenes, etc.) que serán incluidos en la aplicación.
+  # assets:
+  #   - images/a_dot_burr.png # Ejemplo de imagen de asset.
+  #   - images/a_dot_ham.png # Ejemplo de imagen de asset.
+
+  # Sección de fonts: define familias tipográficas personalizadas.
+  # fonts:
+  #  - family: Schyler # Familia tipográfica "Schyler".
+  #    fonts:
+  #      - asset: fonts/Schyler-Regular.ttf # Fuente regular de Schyler.
+  #      - asset: fonts/Schyler-Italic.ttf # Fuente en cursiva de Schyler.
+  #        style: italic
+  #  - family: Trajan Pro # Familia tipográfica "Trajan Pro".
+  #    fonts:
+  #      - asset: fonts/TrajanPro.ttf # Fuente regular de Trajan Pro.
+  #      - asset: fonts/TrajanPro_Bold.ttf # Fuente en negrita de Trajan Pro.
+  #        weight: 700
