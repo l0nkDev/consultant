@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import '../../../domain/entities/query_response.dart';
 import '../../../core/constants/app_text_constants.dart';
 
 class QueryResultDisplay extends StatelessWidget {
-  final String answer;
+  final QueryResponse? response;
   final String error;
 
   const QueryResultDisplay({
     super.key,
-    required this.answer,
+    required this.response,
     required this.error,
   });
 
@@ -19,6 +20,9 @@ class QueryResultDisplay extends StatelessWidget {
         style: const TextStyle(color: Colors.red),
       );
     }
-    return Text(answer);
+    if (response == null) {
+      return const SizedBox(); // O un widget vacío.
+    }
+    return Text(response!.answer);
   }
 }

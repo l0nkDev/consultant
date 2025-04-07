@@ -1,3 +1,4 @@
+import 'package:consultant/core/constants/app_text_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/configs/dependency_injections.dart' as inject;
@@ -32,7 +33,7 @@ class _MaterialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Asistente Legal de Tránsito',
+      title: AppText.appTitle,
       theme: ThemeData(primarySwatch: Colors.blue),
       home: QueryScreen(),
     );

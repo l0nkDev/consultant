@@ -1,11 +1,12 @@
 import '../../data/repositories/query_repository.dart';
+import '../../domain/entities/query_response.dart';
 
 class QueryUseCase {
   final QueryRepository repository;
 
   QueryUseCase({required this.repository});
 
-  Future<String> execute(String query) async {
+  Future<QueryResponse> execute(String query) async {
     return await repository.fetchAnswer(query);
   }
 }

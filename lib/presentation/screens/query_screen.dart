@@ -14,7 +14,7 @@ class QueryScreen extends StatelessWidget {
     final queryProvider = Provider.of<QueryProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppText.appTitle)),
+      appBar: AppBar(title: Text(AppText.queryScreenTitle)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: QuerySection(
@@ -25,7 +25,7 @@ class QueryScreen extends StatelessWidget {
               queryProvider.sendQuery(query);
             }
           },
-          answer: queryProvider.answer,
+          response: queryProvider.response,
           error: queryProvider.errorMessage,
           isLoading: queryProvider.isLoading,
         ),

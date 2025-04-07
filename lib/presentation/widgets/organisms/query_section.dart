@@ -1,22 +1,23 @@
+import 'package:consultant/core/constants/app_text_constants.dart';
 import 'package:flutter/material.dart';
 import '../molecules/query_input.dart';
 import '../molecules/query_result_display.dart';
-import '../../../core/constants/app_text_constants.dart';
 
 class QuerySection extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback onSubmit;
-  final String answer;
-  final String error;
   final bool isLoading;
+  final String error;
+  final dynamic
+  response; // Puedes cambiar dynamic por QueryResponse? si importas la entidad.
 
   const QuerySection({
     super.key,
     required this.controller,
     required this.onSubmit,
-    required this.answer,
-    required this.error,
     required this.isLoading,
+    required this.error,
+    required this.response,
   });
 
   @override
@@ -34,7 +35,7 @@ class QuerySection extends StatelessWidget {
                 Text(AppText.loadingMessage),
               ],
             )
-            : QueryResultDisplay(answer: answer, error: error),
+            : QueryResultDisplay(response: response, error: error),
       ],
     );
   }
