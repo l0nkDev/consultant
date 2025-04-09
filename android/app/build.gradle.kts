@@ -6,9 +6,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.consultant"
+    namespace = "com.topicos.consultant"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+
+    // Leer el valor del NDK desde local.properties, si existe, de lo contrario usar el valor por defecto
+    val ndkVersionProp = project.findProperty("ndk.version") as String?
+    ndkVersion = ndkVersionProp ?: flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -21,7 +24,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.consultant"
+        applicationId = "com.topicos.consultant"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

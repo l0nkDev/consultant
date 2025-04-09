@@ -17,7 +17,7 @@ class QueryApiClient {
     );
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body);
+      final data = json.decode(utf8.decode(response.bodyBytes));
       if (data['answer'] is Map<String, dynamic>) {
         return QueryResponse.fromJson(data['answer']);
       } else if (data['answer'] is String) {

@@ -1,4 +1,4 @@
-package com.example.consultant
+package com.topicos.consultant
 
 import io.flutter.embedding.android.FlutterActivity
 

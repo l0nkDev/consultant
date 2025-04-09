@@ -1,7 +1,9 @@
+// lib/presentation/screens/query_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/query_provider.dart';
-import '../widgets/organisms/query_section.dart';
+import '../widgets/organisms/conversation_view.dart';
+import '../widgets/organisms/input_area.dart';
 import '../../core/constants/app_text_constants.dart';
 
 class QueryScreen extends StatelessWidget {
@@ -15,20 +17,25 @@ class QueryScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(AppText.queryScreenTitle)),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: QuerySection(
-          controller: _controller,
-          onSubmit: () {
-            final query = _controller.text.trim();
-            if (query.isNotEmpty) {
-              queryProvider.sendQuery(query);
-            }
-          },
-          response: queryProvider.response,
-          error: queryProvider.errorMessage,
-          isLoading: queryProvider.isLoading,
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ConversationView(
+              messages: queryProvider.getMessages(),
+              isLoading: queryProvider.isLoading,
+            ),
+          ),
+          InputArea(
+            controller: _controller,
+            onSubmit: () {
+              final query = _controller.text.trim();
+              if (query.isNotEmpty) {
+                queryProvider.sendQuery(query);
+                _controller.clear();
+              }
+            },
+          ),
+        ],
       ),
     );
   }
