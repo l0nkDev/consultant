@@ -6,6 +6,8 @@ class AppText {
   // Textos para el formulario de consulta
   static const String queryFieldLabel = 'Ingresa tu consulta';
   static const String sendButtonText = 'Enviar Consulta';
+  static const String sendButtonText_slim = '➤';
+  static const String startTtsButton_slim = '၊၊||၊';
 
   // Mensajes de estado
   static const String loadingMessage = 'Cargando...';

@@ -7,11 +7,13 @@ import '../../../core/constants/app_text_constants.dart';
 class InputArea extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback onSubmit;
+  final VoidCallback ttsStart;
 
   const InputArea({
     super.key,
     required this.controller,
     required this.onSubmit,
+    required this.ttsStart,
   });
 
   @override
@@ -27,7 +29,9 @@ class InputArea extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          CustomButton(onPressed: onSubmit, text: AppText.sendButtonText),
+          CustomButton(onPressed: onSubmit, text: AppText.sendButtonText_slim),
+          const SizedBox(width: 8),
+          CustomButton(onPressed: ttsStart, text: AppText.startTtsButton_slim),
         ],
       ),
     );
